@@ -57,7 +57,7 @@ How different revision techniques could be generated:
    - Select All,
    - Clipboard History,
    - Find (All, First, Last, Next, Previous, Count, Replace, Match Case, Whole Word Only, In Selection Only, All Pages)
- -Something:
+ - Formatting:
    - Background:
      - Colour,
 	 - Image,
