@@ -33,7 +33,7 @@ How different revision techniques could be generated:
  - Select from list questions could be generated similarly to fill in the blank questions with multiple possible answers.
  - Mind maps could be generated using the connections between different pages and keywords / sentences / paragraphs found in said pages.
 
-##Drop-down Menus:
+## Drop-down Menus:
  - File:
    - New File,
    - Open File,
@@ -57,7 +57,7 @@ How different revision techniques could be generated:
    - Select All,
    - Clipboard History,
    - Find (All, First, Last, Next, Previous, Count, Replace, Match Case, Whole Word Only, In Selection Only, All Pages)
- -Something:
+ - Formatting:
    - Background:
      - Colour,
 	 - Image,
