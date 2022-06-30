@@ -4,7 +4,15 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.Pane;
 
+/**
+ * Represents a PageTree instance that is located on the left of the
+ * window and contains a TreeView of page hierarchy.
+ */
 public class PageTree extends Pane {
+	/**
+	 * Constructor function for the PageTree that creates and adds
+	 * a TreeView of page hierarchy.
+	 */
 	public PageTree() {
 		// Create a tree view of strings.
 		TreeView<String> pageTree = new TreeView<String>();

@@ -4,7 +4,15 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import main.gui.NotImplementedWarning;
 
+/**
+ * Represents a drop-down FileMenu in the TopMenu MenuBar.
+ */
 public class FileMenu extends Menu {
+	
+	/**
+	 * Constructor function for the FileMenu that creates and adds
+	 * several menu items and sub-menus.
+	 */
 	public FileMenu() {
 		this.setText("File");
 		
@@ -40,6 +48,9 @@ public class FileMenu extends Menu {
 		this.getItems().add(openFolderItem);
 	}
 	
+	/**
+	 * Creates and returns the 'export as' sub-menu.
+	 */
 	private Menu createExportAsMenu() {
 		// Crate the export as sub-menu.
 		Menu exportAsMenu = new Menu("Export As");
@@ -60,6 +71,9 @@ public class FileMenu extends Menu {
 		return exportAsMenu;
 	}
 	
+	/**
+	 * Creates and returns the 'print' sub-menu.
+	 */
 	private Menu createPrintMenu() {
 		// Crate the print sub-menu.
 		Menu printMenu = new Menu("Print");

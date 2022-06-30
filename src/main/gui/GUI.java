@@ -1,13 +1,27 @@
 package main.gui;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import main.gui.menu.TopMenu;
+import main.logic.Settings;
 
+/**
+ * Represents a GUI instance that holds (almost) all GUI elements of the window
+ * for this application.
+ */
 public class GUI extends Pane {
+	/**
+	 * Constructor function for GUI that sets the size of this
+	 * (a JavaFX Pane) and creates and adds content to itself.
+	 * 
+	 * @param width The width of the stage / window.
+	 * @param height The height of the stage / window.
+	 */
 	public GUI(int width, int height) {
 		// Set the preferred width and height of the application.
 		this.setPrefWidth(width);
@@ -17,6 +31,13 @@ public class GUI extends Pane {
 		this.getChildren().add(createContent());
 	}
 
+	/**
+	 * Creates and adds content to a JavaFX VBox and returns this to
+	 * the constructor.
+	 * 
+	 * @return A VBox with children being the top menu bar and the
+	 * page content.
+	 */
     private VBox createContent() {
     	// Create a VBox root to contain menus at the top of the application
     	// screen and some content below these.
@@ -50,6 +71,10 @@ public class GUI extends Pane {
     	content.getItems().add(pageTreeContainer);
     	content.getItems().add(pageContainer);
     	
+    	// Add a listener to the divider position property.
+    	DoubleProperty divider = content.getDividers().get(0).positionProperty();
+    	divider.addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> Settings.ChangeDividerValue((double)oldValue, (double)newValue));
+    	
     	// Add the top menu and content SplitPane as a children of root.
     	root.getChildren().add(topMenu);
     	root.getChildren().add(content);
@@ -58,21 +83,16 @@ public class GUI extends Pane {
         return root;
     }
     
-    public void Setup() {
-    	VBox root = (VBox)this.getChildren().get(0);
-    	SplitPane content = (SplitPane)root.getChildren().get(1);
-    	content.setDividerPositions(0.2);
-    }
-    
-    public void Resize(Number oldSize, Number newSize) {
+    /**
+     * Set the divider position to a new ratio.
+     * @param newRatio The new ratio to set the divider position to.
+     */
+    public void NewDividerRatio(double newRatio) {
     	// Get the split pane from this.
     	VBox root = (VBox)this.getChildren().get(0);
     	SplitPane content = (SplitPane)root.getChildren().get(1);
     	
-    	// Get the split ratio for the split pane.
-    	double splitRatio = content.getDividerPositions()[0];
-    	
-    	// Calculate and set the new split ratio.
-    	content.setDividerPositions((splitRatio * (double)oldSize) / (double)newSize);
+    	// Set the new split ratio.
+    	content.setDividerPositions(newRatio);
     }
 }

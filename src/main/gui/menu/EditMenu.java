@@ -4,7 +4,15 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import main.gui.NotImplementedWarning;
 
+/**
+ * Represents a drop-down EditMenu in the TopMenu MenuBar.
+ */
 public class EditMenu extends Menu {
+	
+	/**
+	 * Constructor function for the EditMenu that creates and adds
+	 * several menu items and sub-menus.
+	 */
 	public EditMenu() {
 		this.setText("Edit");
 		
